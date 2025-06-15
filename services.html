@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos Services - Aegis Auto Security</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="img/logo.svg" alt="Auto Security Logo">
+                <span>Auto Security</span>
+            </a>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="services.html" class="active">Services</a>
+		<a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Services Section -->
+        <section class="services-page-section container">
+            <h1 class="page-title">Nos Solutions de Sécurité</h1>
+            <p class="page-subtitle">Systèmes d'arlames ou surveillance assistée par intelligence artificielle, Nous avons des solutions pour tous les besoins et pour tous les budgets.</p>
+            
+            <!-- Services will be dynamically injected here by JavaScript -->
+            <div id="services-grid" class="services-grid"></div>
+
+        </section>
+
+        <!-- Comments Section -->
+        <section class="comments-section container">
+            <h2 class="section-title">Commentaires</h2>
+            <div class="comments-container">
+                <div id="comments-list">
+                    <!-- Pre-filled example comment -->
+                    <div class="comment">
+                        <p class="comment-author"><strong>Sarah K.</strong> - Honda Civic</p>
+                        <p class="comment-text">The GPS tracker saved my car last month! The police recovered it in less than an hour. Can't thank you guys enough.</p>
+                    </div>
+                </div>
+                <form id="comment-form" class="comment-form">
+                    <h3>Laissez un Commentaire</h3>
+                    <input type="text" id="comment-name" placeholder="Votre Nom" required>
+                    <textarea id="comment-text" rows="4" placeholder="Votre commentaire ou question..." required></textarea>
+                    <button type="submit" class="btn btn-secondary">Publier</button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>© 2025 Auto Security. Tous droits réservés.</p>
+	    <p>Site conçu par JTech'Z</p>
+	    <p>Contact : jphilipoz@icloud.com </p>
+        </div>
+    </footer>
+
+    <!-- JS Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="js/services.js"></script>
+
+</body>
+</html>
