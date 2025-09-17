@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secu Auto Security - La sécurité Ultime pour votre véhicule</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="particles-js"></div>
+
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="img/logo.svg" alt="Aegis Auto Security Logo">
+                <span>Auto Security</span>
+            </a>
+            <nav>
+                <a href="index.html" class="active">Home</a>
+                <a href="services.html">Services</a>
+		<a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1 class="hero-title">Votre voiture, Votre forteresse.</h1>
+		<p class="hero-subtitle"> Sécurité optimale, tranquillité d'esprit inégalée. Dans un monde d'incertitudes, la sécurité de votre véhicule ne devrait pas être un problème. Nous vous proposons des outils de pointe pour garder le contrôle.</p> <a href="services.html" class="btn btn-primary">Explore Our Solutions</a>
+            </div>
+        </section>
+
+        <!-- Motivation Section -->
+        <section class="motivation-section container anim-on-scroll">
+            <h2 class="section-title">Pourquoi Sécuriser votre Véhicule?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>24/7 Monitoring</h3>
+                    <p>Theft and vandalism don't stick to a 9-to-5 schedule. Our systems keep a vigilant eye on your vehicle around the clock, giving you real-time updates and peace of mind.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Instant Alerts</h3>
+                    <p>Knowledge is power. Receive immediate notifications on your phone for any unauthorized activity, from a suspicious vibration to an attempted entry, allowing you to react instantly.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Deterrence & Recovery</h3>
+                    <p>Visible security measures are a powerful deterrent. And in the worst-case scenario, our GPS tracking significantly increases the chances of a swift and successful vehicle recovery.</p>
+                </div>
+            </div>
+        </section>
+
+       <!-- Contact Form Section -->
+<section class="contact-section anim-on-scroll">
+    <div class="container">
+        <h2 class="section-title">Get a Free Estimate</h2>
+        <p class="section-subtitle">Tell us about your vehicle and your security needs. We'll provide a custom quote with no obligations.</p>
+        
+        <!-- 
+            ACTION points to your Formspree endpoint. (version pour la mise à jour)
+            Replace "YOUR_UNIQUE_FORM_ID" with the ID from your Formspree dashboard.
+        -->
+        <form id="estimate-form" action="https://formspree.io/f/YOUR_UNIQUE_FORM_ID" method="POST" class="estimate-form">
+            <div class="form-group">
+                <input type="text" id="name" name="name" required placeholder="Your Name *">
+                <input type="email" id="email" name="email" required placeholder="Your Email *">
+            </div>
+            <div class="form-group">
+                <input type="tel" id="phone" name="phone" placeholder="Phone Number">
+                <input type="text" id="car_model" name="car_model" required placeholder="Car Make & Model *">
+            </div>
+            <div class="form-group full-width">
+                <textarea id="needs" name="needs" rows="5" required placeholder="Describe your security needs... *"></textarea>
+            </div>
+            
+            <div class="form-status full-width">
+                <p id="form-status-message"></p>
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Request My Quote</button>
+        </form>
+    </div>
+</section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>© 2025 Auto Security. Tous droits réservés.</p>
+	    <p> Site conçu par JTech'Z. </p>
+	    <p> Contact : <a href="mailto:jphilipoz@icloud.com">jphilipoz@icloud.com</a></p>
+        </div>
+    </footer>
+
+    <!-- JS Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.9.3/tsparticles.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Leaflet.js Interactive Map Initialization ---
     // Coordinates for Silicon Valley (example location)
-    const mapCoordinates = [37.3861, -122.0839]; 
+    const mapCoordinates = [48.87375, 2.295]; 
     
     // Initialize the map
     const map = L.map('map').setView(mapCoordinates, 13);

@@ -1,107 +1,211 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Secu Auto Security - La sécurité Ultime pour votre véhicule</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>Initiation à Python</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0; padding: 0;
+      background: #f5f5f5;
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      background: #306998;
+      color: white;
+      padding: 1.5em;
+      text-align: center;
+    }
+    section {
+      max-width: 900px;
+      margin: 2em auto;
+      padding: 2em;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      color: #306998;
+    }
+    pre {
+      background: #eee;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    .exercise {
+      background: #f0f8ff;
+      border-left: 5px solid #306998;
+      padding: 10px;
+      margin: 15px 0;
+      border-radius: 5px;
+    }
+  </style>
 </head>
 <body>
+  <header>
+    <h1>Découvrir Python</h1>
+    <p>Un premier pas vers la programmation</p>
+  </header>
 
-    <div id="particles-js"></div>
+  <section>
+    <h2>Introduction à la programmation</h2>
+    <p>
+      La programmation consiste à donner des instructions à un ordinateur pour qu’il accomplisse une tâche.  
+      C’est un peu comme écrire une recette de cuisine : on donne des étapes claires et précises, et l’ordinateur les suit.  
+    </p>
+    <p>
+      Python est l’un des langages les plus populaires, car il est simple à apprendre et utilisé dans des domaines très variés :  
+      <ul>
+        <li>Développement web</li>
+        <li>Analyse de données</li>
+        <li>Intelligence artificielle</li>
+        <li>Automatisation de tâches</li>
+        <li>Jeux vidéo</li>
+      </ul>
+    </p>
+  </section>
 
-    <header class="main-header">
-        <div class="container">
-            <a href="index.html" class="logo">
-                <img src="img/logo.svg" alt="Aegis Auto Security Logo">
-                <span>Auto Security</span>
-            </a>
-            <nav>
-                <a href="index.html" class="active">Home</a>
-                <a href="services.html">Services</a>
-		<a href="contact.html">Contact</a>
-            </nav>
-        </div>
-    </header>
-
-    <main>
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="container">
-                <h1 class="hero-title">Votre voiture, Votre forteresse.</h1>
-		<p class="hero-subtitle"> Sécurité optimale, tranquillité d'esprit inégalée. Dans un monde d'incertitudes, la sécurité de votre véhicule ne devrait pas être un problème. Nous vous proposons des outils de pointe pour garder le contrôle.</p> <a href="services.html" class="btn btn-primary">Explore Our Solutions</a>
-            </div>
-        </section>
-
-        <!-- Motivation Section -->
-        <section class="motivation-section container anim-on-scroll">
-            <h2 class="section-title">Pourquoi Sécuriser votre Véhicule?</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <h3>24/7 Monitoring</h3>
-                    <p>Theft and vandalism don't stick to a 9-to-5 schedule. Our systems keep a vigilant eye on your vehicle around the clock, giving you real-time updates and peace of mind.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Instant Alerts</h3>
-                    <p>Knowledge is power. Receive immediate notifications on your phone for any unauthorized activity, from a suspicious vibration to an attempted entry, allowing you to react instantly.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Deterrence & Recovery</h3>
-                    <p>Visible security measures are a powerful deterrent. And in the worst-case scenario, our GPS tracking significantly increases the chances of a swift and successful vehicle recovery.</p>
-                </div>
-            </div>
-        </section>
-
-       <!-- Contact Form Section -->
-<section class="contact-section anim-on-scroll">
-    <div class="container">
-        <h2 class="section-title">Get a Free Estimate</h2>
-        <p class="section-subtitle">Tell us about your vehicle and your security needs. We'll provide a custom quote with no obligations.</p>
-        
-        <!-- 
-            ACTION points to your Formspree endpoint. (version pour la mise à jour)
-            Replace "YOUR_UNIQUE_FORM_ID" with the ID from your Formspree dashboard.
-        -->
-        <form id="estimate-form" action="https://formspree.io/f/YOUR_UNIQUE_FORM_ID" method="POST" class="estimate-form">
-            <div class="form-group">
-                <input type="text" id="name" name="name" required placeholder="Your Name *">
-                <input type="email" id="email" name="email" required placeholder="Your Email *">
-            </div>
-            <div class="form-group">
-                <input type="tel" id="phone" name="phone" placeholder="Phone Number">
-                <input type="text" id="car_model" name="car_model" required placeholder="Car Make & Model *">
-            </div>
-            <div class="form-group full-width">
-                <textarea id="needs" name="needs" rows="5" required placeholder="Describe your security needs... *"></textarea>
-            </div>
-            
-            <div class="form-status full-width">
-                <p id="form-status-message"></p>
-            </div>
-            
-            <button type="submit" class="btn btn-primary">Request My Quote</button>
-        </form>
+  <section>
+    <h2>1. Premiers pas avec Python</h2>
+    <p>Le programme le plus simple en Python est :</p>
+    <pre>print("Bonjour, Python !")</pre>
+    <p>
+      La fonction <code>print()</code> sert à afficher du texte ou des valeurs à l’écran.  
+      Les guillemets indiquent une chaîne de caractères (du texte).  
+    </p>
+    <div class="exercise">
+      ✍️ <b>Exercice :</b>  
+      Écrivez un programme qui affiche votre prénom et votre âge.
     </div>
-</section>
-    </main>
+  </section>
 
-    <footer class="main-footer">
-        <div class="container">
-            <p>© 2025 Auto Security. Tous droits réservés.</p>
-	    <p> Site conçu par JTech'Z. </p>
-	    <p> Contact : <a href="mailto:jphilipoz@icloud.com">jphilipoz@icloud.com</a></p>
-        </div>
-    </footer>
+  <section>
+    <h2>2. Les variables</h2>
+    <p>
+      Une variable est comme une boîte dans laquelle on range une information.  
+      En Python, il suffit d’écrire un nom suivi d’un signe <code>=</code> et d’une valeur.
+    </p>
+    <pre>
+nom = "Alice"
+age = 20
+print(nom, "a", age, "ans")
+    </pre>
+    <p>
+      Les types principaux :
+      <ul>
+        <li><code>int</code> : nombres entiers (ex : 42)</li>
+        <li><code>float</code> : nombres décimaux (ex : 3.14)</li>
+        <li><code>str</code> : chaînes de caractères (ex : "Bonjour")</li>
+      </ul>
+    </p>
+    <div class="exercise">
+      ✍️ <b>Exercice :</b>  
+      Créez une variable pour votre ville et une pour votre année de naissance.  
+      Affichez-les dans une phrase.
+    </div>
+  </section>
 
-    <!-- JS Libraries -->
-    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.9.3/tsparticles.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
-    
-    <!-- Custom JS -->
-    <script src="js/main.js"></script>
+  <section>
+    <h2>3. Les opérations</h2>
+    <p>
+      Python peut effectuer des calculs comme une calculatrice :
+    </p>
+    <pre>
+a = 7
+b = 3
+print(a + b)   # addition
+print(a - b)   # soustraction
+print(a * b)   # multiplication
+print(a / b)   # division flottante
+print(a // b)  # division entière
+print(a % b)   # reste de la division
+    </pre>
+    <div class="exercise">
+      ✍️ <b>Exercice :</b>  
+      Demandez à l’utilisateur le prix d’un produit et le nombre d’unités.  
+      Affichez le prix total.
+    </div>
+  </section>
+
+  <section>
+    <h2>4. Les conditions</h2>
+    <p>
+      Les conditions permettent d’exécuter du code seulement si une situation est vraie.
+    </p>
+    <pre>
+age = 18
+if age >= 18:
+    print("Vous êtes majeur.")
+else:
+    print("Vous êtes mineur.")
+    </pre>
+    <div class="exercise">
+      ✍️ <b>Exercice :</b>  
+      Demandez à l’utilisateur son âge.  
+      Affichez s’il est majeur ou mineur.
+    </div>
+  </section>
+
+  <section>
+    <h2>5. Les boucles</h2>
+    <p>
+      Une boucle sert à répéter une instruction plusieurs fois.
+    </p>
+    <pre>
+# Boucle for
+for i in range(5):
+    print("Bonjour", i)
+
+# Boucle while
+compteur = 0
+while compteur < 3:
+    print("Compteur :", compteur)
+    compteur += 1
+    </pre>
+    <div class="exercise">
+      ✍️ <b>Exercice :</b>  
+      Écrivez un programme qui affiche les nombres de 1 à 10.  
+    </div>
+  </section>
+
+  <section>
+    <h2>6. Mini-projet : Devine le nombre</h2>
+    <p>Un petit jeu simple pour mettre en pratique les conditions et les nombres aléatoires :</p>
+    <pre>
+import random
+
+secret = random.randint(1, 10)
+guess = int(input("Devine le nombre entre 1 et 10 : "))
+
+if guess == secret:
+    print("Bravo, vous avez trouvé !")
+else:
+    print("Dommage, le nombre était", secret)
+    </pre>
+    <div class="exercise">
+      ✍️ <b>Exercice :</b>  
+      Modifiez le jeu pour que le joueur ait 3 tentatives.
+    </div>
+  </section>
+
+  <section>
+    <h2>Conclusion</h2>
+    <p>
+      🎉 Félicitations !  
+      Vous avez découvert les bases de Python :  
+      <ul>
+        <li><code>print()</code> pour afficher du texte</li>
+        <li>Les variables</li>
+        <li>Les opérations</li>
+        <li>Les conditions</li>
+        <li>Les boucles</li>
+      </ul>
+      Python est un langage simple mais puissant : avec de la pratique, vous pourrez créer vos propres programmes, analyser des données, faire des jeux ou même de l’intelligence artificielle.
+    </p>
+  </section>
+
 </body>
 </html>
+
