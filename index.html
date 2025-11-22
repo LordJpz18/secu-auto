@@ -1,210 +1,218 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Initiation à Python</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mission Pythonia</title>
   <style>
+    :root {
+      --primary: #4dd0e1;
+      --secondary: #0097a7;
+      --accent: #ffeb3b;
+      --bg1: #6dd5fa;
+      --bg2: #2980b9;
+      --card-bg: rgba(255, 255, 255, 0.18);
+      --glass: blur(12px);
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      margin: 0; padding: 0;
-      background: #f5f5f5;
-      color: #333;
-      line-height: 1.6;
-    }
-    header {
-      background: #306998;
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, var(--bg1), var(--bg2));
       color: white;
-      padding: 1.5em;
+      overflow-x: hidden;
+    }
+
+    .parallax {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: url('https://i.imgur.com/oYiTqum.png');
+      background-size: cover;
+      opacity: 0.15;
+      z-index: -1;
+      animation: moveBg 35s linear infinite;
+    }
+
+    @keyframes moveBg {
+      0% { transform: scale(1) translate(0,0); }
+      50% { transform: scale(1.1) translate(-20px, -20px); }
+      100% { transform: scale(1) translate(0,0); }
+    }
+
+    header {
       text-align: center;
+      padding: 80px 20px 40px;
+      animation: fadeDown 1s ease;
     }
-    section {
-      max-width: 900px;
-      margin: 2em auto;
-      padding: 2em;
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+
+    h1 {
+      font-size: 3.5rem;
+      text-shadow: 0 6px 15px rgba(0,0,0,0.4);
     }
-    h1, h2, h3 {
-      color: #306998;
+
+    .card {
+      background: var(--card-bg);
+      backdrop-filter: var(--glass);
+      border-radius: 20px;
+      padding: 25px 30px;
+      margin: 25px auto;
+      width: min(85%, 900px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+      animation: fadeUp 1s ease;
+      transition: transform .3s;
     }
+
+    .card:hover {
+      transform: translateY(-8px) scale(1.01);
+    }
+
     pre {
-      background: #eee;
-      padding: 10px;
-      border-radius: 5px;
+      background: rgba(0,0,0,0.35);
+      padding: 18px;
+      border-radius: 12px;
+      font-size: 1.1rem;
       overflow-x: auto;
     }
-    .exercise {
-      background: #f0f8ff;
-      border-left: 5px solid #306998;
-      padding: 10px;
-      margin: 15px 0;
-      border-radius: 5px;
+
+    .mascot {
+      width: 120px;
+      animation: float 3s ease-in-out infinite;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.4));
     }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-18px); }
+      100% { transform: translateY(0); }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--accent);
+      color: #000;
+      padding: 14px 28px;
+      border-radius: 12px;
+      font-size: 1.3rem;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    .btn:hover {
+      transform: scale(1.1) rotate(-1deg);
+    }
+
+    .hidden { opacity: 0; transform: translateY(40px); }
+    .show { opacity: 1; transform: translateY(0); transition: all .9s ease; }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Découvrir Python</h1>
-    <p>Un premier pas vers la programmation</p>
-  </header>
 
-  <section>
-    <h2>Introduction à la programmation</h2>
-    <p>
-      La programmation consiste à donner des instructions à un ordinateur pour qu’il accomplisse une tâche.  
-      C’est un peu comme écrire une recette de cuisine : on donne des étapes claires et précises, et l’ordinateur les suit.  
-    </p>
-    <p>
-      Python est l’un des langages les plus populaires, car il est simple à apprendre et utilisé dans des domaines très variés :  
-      <ul>
-        <li>Développement web</li>
-        <li>Analyse de données</li>
-        <li>Intelligence artificielle</li>
-        <li>Automatisation de tâches</li>
-        <li>Jeux vidéo</li>
-      </ul>
-    </p>
-  </section>
+<div class="parallax"></div>
 
-  <section>
-    <h2>1. Premiers pas avec Python</h2>
-    <p>Le programme le plus simple en Python est :</p>
-    <pre>print("Bonjour, Python !")</pre>
-    <p>
-      La fonction <code>print()</code> sert à afficher du texte ou des valeurs à l’écran.  
-      Les guillemets indiquent une chaîne de caractères (du texte).  
-    </p>
-    <div class="exercise">
-      ✍️ <b>Exercice :</b>  
-      Écrivez un programme qui affiche votre prénom et votre âge.
-    </div>
-  </section>
+<header>
+  <h1>🐍 Mission Pythonia — L’Aventure Commence !</h1>
+  <img class="mascot" src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" />
+  <p style="font-size:1.3rem;">Bienvenue jeune explorateur ! Prépare-toi à apprendre Python dans un monde magique.</p>
+</header>
 
-  <section>
-    <h2>2. Les variables</h2>
-    <p>
-      Une variable est comme une boîte dans laquelle on range une information.  
-      En Python, il suffit d’écrire un nom suivi d’un signe <code>=</code> et d’une valeur.
-    </p>
-    <pre>
-nom = "Alice"
-age = 20
-print(nom, "a", age, "ans")
-    </pre>
-    <p>
-      Les types principaux :
-      <ul>
-        <li><code>int</code> : nombres entiers (ex : 42)</li>
-        <li><code>float</code> : nombres décimaux (ex : 3.14)</li>
-        <li><code>str</code> : chaînes de caractères (ex : "Bonjour")</li>
-      </ul>
-    </p>
-    <div class="exercise">
-      ✍️ <b>Exercice :</b>  
-      Créez une variable pour votre ville et une pour votre année de naissance.  
-      Affichez-les dans une phrase.
-    </div>
-  </section>
+<div class="card hidden">
+  <h2>🎯 Objectif de la mission</h2>
+  <ul>
+    <li>✨ Découvrir les entiers</li>
+    <li>✨ Manipuler les chaînes de caractères</li>
+    <li>✨ Afficher tes premiers messages</li>
+    <li>✨ Créer ton mini-projet final</li>
+  </ul>
+</div>
 
-  <section>
-    <h2>3. Les opérations</h2>
-    <p>
-      Python peut effectuer des calculs comme une calculatrice :
-    </p>
-    <pre>
+<div class="card hidden">
+  <h2>🧪 Exercice 1 : Salut Pythonia !</h2>
+  <pre>print("Salut Pythonia !")</pre>
+</div>
+
+<div class="card hidden">
+  <h2>🧮 Exercice 2 : Les nombres magiques</h2>
+  <pre>age = 12
+print(age * 3)</pre>
+</div>
+
+<div class="card hidden">
+  <h2>➕ Exercice 3 : Opérations sur les entiers</h2>
+  <pre>
+# Addition, soustraction, multiplication, division
 a = 7
 b = 3
-print(a + b)   # addition
-print(a - b)   # soustraction
-print(a * b)   # multiplication
-print(a / b)   # division flottante
-print(a // b)  # division entière
-print(a % b)   # reste de la division
-    </pre>
-    <div class="exercise">
-      ✍️ <b>Exercice :</b>  
-      Demandez à l’utilisateur le prix d’un produit et le nombre d’unités.  
-      Affichez le prix total.
-    </div>
-  </section>
+print("Addition :", a + b)
+print("Soustraction :", a - b)
+print("Multiplication :", a * b)
+print("Division :", a / b)
+  </pre>
+  <p>➡️ Amuse-toi à changer les valeurs et observe les résultats !</p>
+</div>
 
-  <section>
-    <h2>4. Les conditions</h2>
-    <p>
-      Les conditions permettent d’exécuter du code seulement si une situation est vraie.
-    </p>
-    <pre>
-age = 18
-if age >= 18:
-    print("Vous êtes majeur.")
+<div class="card hidden">
+  <h2>📝 Exercice 4 : Jeux avec les chaînes</h2>
+  <pre>
+nom = input("Ton prénom : ")
+print("Bonjour, " + nom + " !")
+print("Ton prénom en majuscules :", nom.upper())
+print("Ton prénom répété 3 fois :", nom * 3)
+  </pre>
+  <p>➡️ Essaie de concaténer ton nom avec un mot magique et de le répéter !</p>
+</div>
+
+<div class="card hidden">
+  <h2>🎲 Exercice 5 : Devinettes rigolotes</h2>
+  <pre>
+mot = input("Devine le mot magique : ")
+if mot == "abracadabra":
+    print("🎉 Bravo, tu as trouvé !")
 else:
-    print("Vous êtes mineur.")
-    </pre>
-    <div class="exercise">
-      ✍️ <b>Exercice :</b>  
-      Demandez à l’utilisateur son âge.  
-      Affichez s’il est majeur ou mineur.
-    </div>
-  </section>
+    print("😢 Essaie encore !")
+  </pre>
+</div>
 
-  <section>
-    <h2>5. Les boucles</h2>
-    <p>
-      Une boucle sert à répéter une instruction plusieurs fois.
-    </p>
-    <pre>
-# Boucle for
-for i in range(5):
-    print("Bonjour", i)
+<div class="card hidden">
+  <h2>💡 Mini-Projet : Carte d’Aventurier</h2>
+  <pre>print("=== Carte d'Aventurier ===")
+nom = input("Ton nom : ")
+age = input("Ton âge : ")
+ville = input("Ta ville : ")
+print("Bienvenue,", nom, "— aventurier de", ville, "âgé de", age, "ans !")</pre>
+  <p>➡️ Personnalise la fiche avec des emojis ou des messages rigolos !</p>
+</div>
 
-# Boucle while
-compteur = 0
-while compteur < 3:
-    print("Compteur :", compteur)
-    compteur += 1
-    </pre>
-    <div class="exercise">
-      ✍️ <b>Exercice :</b>  
-      Écrivez un programme qui affiche les nombres de 1 à 10.  
-    </div>
-  </section>
+<div class="card hidden" style="text-align:center;">
+  <h2>✨ Tout est prêt !</h2>
+  <div class="btn" onclick="startMission()">🚀 Je commence !</div>
+</div>
 
-  <section>
-    <h2>6. Mini-projet : Devine le nombre</h2>
-    <p>Un petit jeu simple pour mettre en pratique les conditions et les nombres aléatoires :</p>
-    <pre>
-import random
+<script>
+  function startMission() {
+    alert('Bonne chance jeune aventurier ! 🐍🚀');
+  }
 
-secret = random.randint(1, 10)
-guess = int(input("Devine le nombre entre 1 et 10 : "))
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      }
+    });
+  });
 
-if guess == secret:
-    print("Bravo, vous avez trouvé !")
-else:
-    print("Dommage, le nombre était", secret)
-    </pre>
-    <div class="exercise">
-      ✍️ <b>Exercice :</b>  
-      Modifiez le jeu pour que le joueur ait 3 tentatives.
-    </div>
-  </section>
-
-  <section>
-    <h2>Conclusion</h2>
-    <p>
-      🎉 Félicitations !  
-      Vous avez découvert les bases de Python :  
-      <ul>
-        <li><code>print()</code> pour afficher du texte</li>
-        <li>Les variables</li>
-        <li>Les opérations</li>
-        <li>Les conditions</li>
-        <li>Les boucles</li>
-      </ul>
-      Python est un langage simple mais puissant : avec de la pratique, vous pourrez créer vos propres programmes, analyser des données, faire des jeux ou même de l’intelligence artificielle.
-    </p>
-  </section>
+  document.querySelectorAll('.hidden').forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>
