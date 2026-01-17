@@ -1,219 +1,306 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mission Pythonia</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dino Runner - Mission des P’tits Codeurs</title>
   <style>
     :root {
-      --primary: #4dd0e1;
-      --secondary: #0097a7;
-      --accent: #ffeb3b;
-      --bg1: #6dd5fa;
-      --bg2: #2980b9;
-      --card-bg: rgba(255, 255, 255, 0.18);
-      --glass: blur(12px);
+      --bg: radial-gradient(circle at 20% 20%, #ffe082 0, #ffd54f 20%, #ffb300 45%, #ff6f00 100%);
+      --card: #fff7e6;
+      --accent: #ff3c8c;
+      --accent-2: #5dd0ff;
+      --ink: #1e1b4b;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
     }
-
+    * { box-sizing: border-box; }
     body {
       margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, var(--bg1), var(--bg2));
-      color: white;
-      overflow-x: hidden;
+      font-family: "Fredoka", "Baloo 2", "Trebuchet MS", "Comic Sans MS", cursive;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      line-height: 1.6;
     }
-
-    .parallax {
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: url('https://i.imgur.com/oYiTqum.png');
-      background-size: cover;
-      opacity: 0.15;
-      z-index: -1;
-      animation: moveBg 35s linear infinite;
-    }
-
-    @keyframes moveBg {
-      0% { transform: scale(1) translate(0,0); }
-      50% { transform: scale(1.1) translate(-20px, -20px); }
-      100% { transform: scale(1) translate(0,0); }
-    }
-
     header {
-      text-align: center;
-      padding: 80px 20px 40px;
-      animation: fadeDown 1s ease;
+      padding: 40px 28px 20px;
+      max-width: 1100px;
+      margin: 0 auto;
     }
-
-    h1 {
-      font-size: 3.5rem;
-      text-shadow: 0 6px 15px rgba(0,0,0,0.4);
+    .hero {
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 28px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
     }
-
-    .card {
-      background: var(--card-bg);
-      backdrop-filter: var(--glass);
-      border-radius: 20px;
-      padding: 25px 30px;
-      margin: 25px auto;
-      width: min(85%, 900px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.25);
-      animation: fadeUp 1s ease;
-      transition: transform .3s;
+    .hero::before, .hero::after {
+      content: "";
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      border-radius: 40%;
+      filter: blur(40px);
+      opacity: 0.35;
+      z-index: 0;
     }
-
-    .card:hover {
-      transform: translateY(-8px) scale(1.01);
-    }
-
-    pre {
-      background: rgba(0,0,0,0.35);
-      padding: 18px;
-      border-radius: 12px;
-      font-size: 1.1rem;
-      overflow-x: auto;
-    }
-
-    .mascot {
-      width: 120px;
-      animation: float 3s ease-in-out infinite;
-      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.4));
-    }
-
-    @keyframes float {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(-18px); }
-      100% { transform: translateY(0); }
-    }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(40px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeDown {
-      from { opacity: 0; transform: translateY(-40px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
+    .hero::before { background: #ff3c8c; top: -80px; left: -60px; }
+    .hero::after { background: #5dd0ff; bottom: -120px; right: -80px; }
+    .hero-content { position: relative; z-index: 1; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 20px; align-items: center; }
+    h1 { margin: 0 0 10px; font-size: 38px; letter-spacing: -0.5px; }
+    p.lead { font-size: 18px; margin: 0 0 20px; }
+    .cta-row { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
     .btn {
-      display: inline-block;
-      background: var(--accent);
-      color: #000;
-      padding: 14px 28px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 18px;
+      border-radius: 16px;
+      border: none;
+      text-decoration: none;
+      font-weight: 700;
+      background: linear-gradient(120deg, #ff3c8c, #ff6f00);
+      color: white;
+      box-shadow: var(--shadow);
+      transition: transform 0.15s ease, box-shadow 0.2s ease;
+    }
+    .btn.secondary {
+      background: white;
+      color: var(--ink);
+      border: 2px solid #ffd54f;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 16px 40px rgba(0,0,0,0.2); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px,1fr)); gap: 10px; margin-top: 20px; }
+    .pill {
+      background: rgba(255,255,255,0.85);
+      padding: 10px 12px;
+      border-radius: 14px;
+      font-weight: 700;
+      text-align: center;
+      border: 2px dashed #ffd54f;
+    }
+    .hero-visual {
+      background: #1e1b4b;
+      border-radius: 24px;
+      padding: 14px;
+      box-shadow: inset 0 0 0 4px #ffd54f, var(--shadow);
+    }
+    .hero-visual img {
+      width: 100%;
       border-radius: 12px;
-      font-size: 1.3rem;
-      cursor: pointer;
-      transition: 0.3s;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      display: block;
     }
-
-    .btn:hover {
-      transform: scale(1.1) rotate(-1deg);
+    main { max-width: 1100px; margin: 0 auto; padding: 0 28px 60px; }
+    .section-title { margin: 50px 0 18px; font-size: 28px; display: flex; align-items: center; gap: 10px; }
+    .section-title span { font-size: 24px; color: #ff3c8c; }
+    .steps {
+      display: grid;
+      gap: 20px;
     }
-
-    .hidden { opacity: 0; transform: translateY(40px); }
-    .show { opacity: 1; transform: translateY(0); transition: all .9s ease; }
+    .step-card {
+      background: var(--card);
+      border-radius: 24px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 16px;
+      align-items: center;
+    }
+    .step-card h3 { margin: 0 0 10px; font-size: 22px; }
+    .step-card p { margin: 0 0 10px; }
+    .step-card ul { margin: 0; padding-left: 18px; }
+    .step-card li { margin-bottom: 6px; }
+    .step-img {
+      justify-self: center;
+      background: white;
+      padding: 12px;
+      border-radius: 16px;
+      box-shadow: inset 0 0 0 3px #1e1b4b;
+    }
+    .step-img img { width: 170px; height: auto; display: block; }
+    code, pre {
+      background: #111827;
+      color: #f9fafb;
+      border-radius: 12px;
+      padding: 12px;
+      display: block;
+      overflow-x: auto;
+      font-size: 14px;
+    }
+    .tip-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 14px; }
+    .tip {
+      background: rgba(255,255,255,0.9);
+      border-radius: 18px;
+      padding: 14px;
+      box-shadow: var(--shadow);
+    }
+    footer { text-align: center; padding: 40px 0 10px; color: #1e1b4b; font-weight: 600; }
+    @media (max-width: 820px) {
+      .hero-content { grid-template-columns: 1fr; }
+      .step-card { grid-template-columns: 1fr; }
+      h1 { font-size: 32px; }
+    }
   </style>
 </head>
 <body>
+  <header>
+    <div class="hero">
+      <div class="hero-content">
+        <div>
+          <h1>Construit le Dino Runner en 4 étapes colorées</h1>
+          <p class="lead">Télécharge le pack de départ, ouvre <strong>main.py</strong> dans Visual Studio Code, remplis les TODO et regarde ton T-Rex apprendre à courir, sauter et esquiver.</p>
+          <div class="cta-row">
+            <a class="btn" href="starter_pack.zip" download>⬇️ Télécharger starter_pack.zip</a>
+            <a class="btn secondary" href="starter_pack/main.py" download>📄 Voir main.py</a>
+          </div>
+          <div class="stats">
+            <div class="pill">4 mini-constructions</div>
+            <div class="pill">Fonctionne dans VS Code</div>
+            <div class="pill">Pour 10 ans et +</div>
+            <div class="pill">Avec Pygame</div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <img src="preview.png" alt="Finished Dino game preview">
+        </div>
+      </div>
+    </div>
+  </header>
 
-<div class="parallax"></div>
+  <main>
+    <h2 class="section-title"><span>🧭</span>Comment démarrer</h2>
+    <div class="tip-grid">
+      <div class="tip">
+        <strong>1) Dézippe et ouvre</strong><br>Dézippe <code>starter_pack.zip</code>. Ouvre le dossier dans Visual Studio Code.
+      </div>
+      <div class="tip">
+        <strong>2) Ouvre le fichier</strong><br>Double-clique sur <code>main.py</code>. Chaque TODO te dit exactement quoi écrire.
+      </div>
+      <div class="tip">
+        <strong>3) Lance</strong><br>Dans le terminal de VS Code, lance <code>python main.py</code>. Si quelque chose manque, corrige le TODO indiqué.
+      </div>
+    </div>
 
-<header>
-  <h1>🐍 Mission Pythonia — L’Aventure Commence !</h1>
-  <img class="mascot" src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" />
-  <p style="font-size:1.3rem;">Bienvenue jeune explorateur ! Prépare-toi à apprendre Python dans un monde magique.</p>
-</header>
+    <h2 class="section-title"><span>🦖</span>La magie étape par étape</h2>
+    <div class="steps">
+      <div class="step-card">
+        <div>
+          <h3>Étape 1 — Faire courir le Dino</h3>
+          <p>Donne vie au T-Rex en alternant ses deux images de course.</p>
+          <ul>
+            <li>Dans <code>Dinosaur.run</code>, recopie les lignes indiquées et mets <code>image</code> sur les images de <code>run_img</code>.</li>
+            <li>Replace le rectangle du dino en X/Y pour qu’il reste au sol.</li>
+            <li>Augmente <code>step_index</code> pour alterner les jambes.</li>
+          </ul>
+          <pre>self.image = self.run_img[self.step_index // 5]
+self.dino_rect = self.image.get_rect()
+self.dino_rect.x = self.X_POS
+self.dino_rect.y = self.Y_POS
+self.step_index += 1</pre>
+        </div>
+        <div class="step-img">
+          <img src="Assets/Dino/DinoRun1.png" alt="Running Dino">
+        </div>
+      </div>
 
-<div class="card hidden">
-  <h2>🎯 Objectif de la mission</h2>
-  <ul>
-    <li>✨ Découvrir les entiers</li>
-    <li>✨ Manipuler les chaînes de caractères</li>
-    <li>✨ Afficher tes premiers messages</li>
-    <li>✨ Créer ton mini-projet final</li>
-  </ul>
-</div>
+      <div class="step-card">
+        <div>
+          <h3>Étape 2 — Sauter et atterrir en douceur</h3>
+          <p>Donne au Dino une courbe de saut pour passer au-dessus des cactus.</p>
+          <ul>
+            <li>Dans <code>Dinosaur.jump</code>, passe à l’image de saut.</li>
+            <li>Monte avec <code>jump_vel</code>, puis diminue la vitesse pour que la gravité le ramène.</li>
+            <li>Quand <code>jump_vel</code> est plus petit que <code>-JUMP_VEL</code>, remets-le à sa valeur de départ et arrête le saut.</li>
+          </ul>
+          <pre>self.image = self.jump_img
+if self.dino_jump:
+    self.dino_rect.y -= self.jump_vel * 4
+    self.jump_vel -= 0.8
+if self.jump_vel &lt; -self.JUMP_VEL:
+    self.dino_jump = False
+    self.jump_vel = self.JUMP_VEL</pre>
+        </div>
+        <div class="step-img">
+          <img src="Assets/Dino/DinoJump.png" alt="Jumping Dino">
+        </div>
+      </div>
 
-<div class="card hidden">
-  <h2>🧪 Exercice 1 : Salut Pythonia !</h2>
-  <pre>print("Salut Pythonia !")</pre>
-</div>
+      <div class="step-card">
+        <div>
+          <h3>Étape 3 — Ciel, score et sol qui bouge</h3>
+          <p>Ajoute un désert vivant avec piste qui défile, nuages moelleux et un score qui accélère le jeu.</p>
+          <ul>
+            <li>Dans <code>Cloud.update</code>, fais glisser les nuages à gauche et réapparaitre plus loin à une hauteur au hasard.</li>
+            <li>Dans <code>background()</code>, dessine deux fois la piste et déplace <code>x_pos_bg</code> pour qu’elle boucle.</li>
+            <li>Dans <code>score()</code>, ajoute un point à chaque frame et augmente <code>game_speed</code> tous les 100 points, puis affiche le texte.</li>
+          </ul>
+          <pre># Cloud.update
+self.x -= game_speed
+if self.x &lt; -self.width:
+    self.x = SCREEN_WIDTH + random.randint(2500, 3000)
+    self.y = random.randint(50, 100)
 
-<div class="card hidden">
-  <h2>🧮 Exercice 2 : Les nombres magiques</h2>
-  <pre>age = 12
-print(age * 3)</pre>
-</div>
+# background()
+image_width = BG.get_width()
+SCREEN.blit(BG, (x_pos_bg, y_pos_bg))
+SCREEN.blit(BG, (image_width + x_pos_bg, y_pos_bg))
+if x_pos_bg &lt;= -image_width:
+    SCREEN.blit(BG, (image_width + x_pos_bg, y_pos_bg))
+    x_pos_bg = 0
+x_pos_bg -= game_speed
 
-<div class="card hidden">
-  <h2>➕ Exercice 3 : Opérations sur les entiers</h2>
-  <pre>
-# Addition, soustraction, multiplication, division
-a = 7
-b = 3
-print("Addition :", a + b)
-print("Soustraction :", a - b)
-print("Multiplication :", a * b)
-print("Division :", a / b)
-  </pre>
-  <p>➡️ Amuse-toi à changer les valeurs et observe les résultats !</p>
-</div>
+# score()
+points += 1
+if points % 100 == 0:
+    game_speed += 1
+text = font.render("Points: " + str(points), True, (0, 0, 0))
+textRect = text.get_rect()
+textRect.center = (1000, 40)
+SCREEN.blit(text, textRect)</pre>
+        </div>
+        <div class="step-img">
+          <img src="Assets/Other/Cloud.png" alt="Cloud illustration">
+        </div>
+      </div>
 
-<div class="card hidden">
-  <h2>📝 Exercice 4 : Jeux avec les chaînes</h2>
-  <pre>
-nom = input("Ton prénom : ")
-print("Bonjour, " + nom + " !")
-print("Ton prénom en majuscules :", nom.upper())
-print("Ton prénom répété 3 fois :", nom * 3)
-  </pre>
-  <p>➡️ Essaie de concaténer ton nom avec un mot magique et de le répéter !</p>
-</div>
+      <div class="step-card">
+        <div>
+          <h3>Étape 4 — Obstacles, chocs et relance</h3>
+          <p>Fais arriver cactus et oiseaux dans la piste et gère les collisions.</p>
+          <ul>
+            <li>Dans <code>Obstacle.update</code>, déplace chaque obstacle à gauche et supprime-le quand il sort de l’écran.</li>
+            <li>Dans la boucle <code>for obstacle in obstacles</code>, utilise <code>colliderect</code> pour faire une pause, ajouter à <code>death_count</code>, puis appeler <code>menu(death_count)</code>.</li>
+            <li>Appuie sur n’importe quelle touche dans le menu pour recommencer ta course !</li>
+          </ul>
+          <pre># Obstacle.update
+self.rect.x -= game_speed
+if self.rect.x &lt; -self.rect.width:
+    obstacles.pop()
 
-<div class="card hidden">
-  <h2>🎲 Exercice 5 : Devinettes rigolotes</h2>
-  <pre>
-mot = input("Devine le mot magique : ")
-if mot == "abracadabra":
-    print("🎉 Bravo, tu as trouvé !")
-else:
-    print("😢 Essaie encore !")
-  </pre>
-</div>
+# Collision check
+if player.dino_rect.colliderect(obstacle.rect):
+    pygame.time.delay(2000)
+    death_count += 1
+    menu(death_count)</pre>
+        </div>
+        <div class="step-img">
+          <img src="Assets/Cactus/SmallCactus1.png" alt="Cactus obstacle">
+        </div>
+      </div>
+    </div>
 
-<div class="card hidden">
-  <h2>💡 Mini-Projet : Carte d’Aventurier</h2>
-  <pre>print("=== Carte d'Aventurier ===")
-nom = input("Ton nom : ")
-age = input("Ton âge : ")
-ville = input("Ta ville : ")
-print("Bienvenue,", nom, "— aventurier de", ville, "âgé de", age, "ans !")</pre>
-  <p>➡️ Personnalise la fiche avec des emojis ou des messages rigolos !</p>
-</div>
+    <h2 class="section-title"><span>💡</span>Astuces pour bien jouer</h2>
+    <div class="tip-grid">
+      <div class="tip"><strong>Teste après chaque étape.</strong> Lance <code>python main.py</code> et passe à la carte suivante quand ça marche.</div>
+      <div class="tip"><strong>Garde l’œil sur les TODO.</strong> Chaque morceau manquant a son indice dans <code>main.py</code>.</div>
+      <div class="tip"><strong>Essaye tes propres idées.</strong> Change <code>game_speed</code> ou la hauteur des nuages pour un monde à toi.</div>
+      <div class="tip"><strong>Bloqué·e ?</strong> Compare avec l’extrait sur cette page, puis retape-le toi-même.</div>
+    </div>
+  </main>
 
-<div class="card hidden" style="text-align:center;">
-  <h2>✨ Tout est prêt !</h2>
-  <div class="btn" onclick="startMission()">🚀 Je commence !</div>
-</div>
-
-<script>
-  function startMission() {
-    alert('Bonne chance jeune aventurier ! 🐍🚀');
-  }
-
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('show');
-      }
-    });
-  });
-
-  document.querySelectorAll('.hidden').forEach(el => observer.observe(el));
-</script>
-
+  <footer>Amuse-toi bien ! Ton Dino t’encourage. 🦖✨</footer>
+  <footer>Site créé par JPZ (c). Tous droits réservés.</footer>
 </body>
 </html>
-
