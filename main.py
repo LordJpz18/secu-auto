@@ -129,7 +129,8 @@ class Obstacle:
     def update(self):
         self.rect.x -= game_speed
         if self.rect.x < -self.rect.width:
-            obstacles.pop()
+            if self in obstacles:
+                obstacles.remove(self)
 
     def draw(self, SCREEN):
         SCREEN.blit(self.image[self.type], self.rect)
@@ -163,8 +164,29 @@ class Bird(Obstacle):
         self.index += 1
 
 
+class Coin:
+    def __init__(self):
+        self.radius = 14
+        self.x = SCREEN_WIDTH + random.randint(800, 1200)
+        self.y = random.randint(200, 340)
+        self.rect = pygame.Rect(0, 0, self.radius * 2, self.radius * 2)
+        self.rect.center = (self.x, self.y)
+
+    def update(self):
+        self.x -= game_speed
+        self.rect.centerx = self.x
+        if self.x < -self.radius:
+            if self in coins:
+                coins.remove(self)
+
+    def draw(self, SCREEN):
+        pygame.draw.circle(SCREEN, (255, 201, 64), (self.x, self.y), self.radius)
+        pygame.draw.circle(SCREEN, (255, 236, 153), (self.x - 4, self.y - 4), 5)
+        pygame.draw.circle(SCREEN, (180, 120, 20), (self.x, self.y), self.radius, 2)
+
+
 def main():
-    global game_speed, x_pos_bg, y_pos_bg, points, obstacles
+    global game_speed, x_pos_bg, y_pos_bg, points, obstacles, coins
     run = True
     clock = pygame.time.Clock()
     player = Dinosaur()
@@ -173,9 +195,12 @@ def main():
     x_pos_bg = 0
     y_pos_bg = 380
     points = 0
+    coin_count = 0
+    lives = 3
+    coin_value = 50
     font = pygame.font.Font('freesansbold.ttf', 20)
     obstacles = []
-    death_count = 0
+    coins = []
 
     def score():
         global points, game_speed
@@ -187,6 +212,10 @@ def main():
         textRect = text.get_rect()
         textRect.center = (1000, 40)
         SCREEN.blit(text, textRect)
+        hud = font.render("Lives: " + str(lives) + "  Coins: " + str(coin_count), True, (0, 0, 0))
+        hud_rect = hud.get_rect()
+        hud_rect.topleft = (20, 20)
+        SCREEN.blit(hud, hud_rect)
 
     def background():
         global x_pos_bg, y_pos_bg
@@ -217,13 +246,26 @@ def main():
             elif random.randint(0, 2) == 2:
                 obstacles.append(Bird(BIRD))
 
-        for obstacle in obstacles:
+        if len(coins) == 0 and random.randint(0, 4) == 0:
+            coins.append(Coin())
+
+        for obstacle in obstacles[:]:
             obstacle.draw(SCREEN)
             obstacle.update()
             if player.dino_rect.colliderect(obstacle.rect):
-                pygame.time.delay(2000)
-                death_count += 1
-                menu(death_count)
+                lives -= 1
+                obstacles.remove(obstacle)
+                if lives <= 0:
+                    pygame.time.delay(600)
+                    menu(points, coin_count)
+
+        for coin in coins[:]:
+            coin.draw(SCREEN)
+            coin.update()
+            if player.dino_rect.colliderect(coin.rect):
+                coin_count += 1
+                points += coin_value
+                coins.remove(coin)
 
         background()
 
@@ -236,21 +278,24 @@ def main():
         pygame.display.update()
 
 
-def menu(death_count):
-    global points
+def menu(final_score=0, final_coins=0):
     run = True
     while run:
         SCREEN.fill((255, 255, 255))
         font = pygame.font.Font('freesansbold.ttf', 30)
 
-        if death_count == 0:
+        if final_score == 0 and final_coins == 0:
             text = font.render("Press any Key to Start", True, (0, 0, 0))
-        elif death_count > 0:
+        else:
             text = font.render("Press any Key to Restart", True, (0, 0, 0))
-            score = font.render("Your Score: " + str(points), True, (0, 0, 0))
+            score = font.render("Score: " + str(final_score), True, (0, 0, 0))
             scoreRect = score.get_rect()
             scoreRect.center = (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2 + 50)
             SCREEN.blit(score, scoreRect)
+            coins = font.render("Coins: " + str(final_coins), True, (0, 0, 0))
+            coinsRect = coins.get_rect()
+            coinsRect.center = (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2 + 90)
+            SCREEN.blit(coins, coinsRect)
         textRect = text.get_rect()
         textRect.center = (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2)
         SCREEN.blit(text, textRect)
@@ -264,4 +309,4 @@ def menu(death_count):
                 main()
 
 
-menu(death_count=0)
+menu()
