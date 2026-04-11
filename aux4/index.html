@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TP Python - Bases</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Crimson+Text:wght@400;600&display=swap");
+
+      :root {
+        --bg: #f5f0e9;
+        --ink: #1f1b16;
+        --accent: #ff7a59;
+        --accent-2: #2d6a4f;
+        --card: #fff8f1;
+        --muted: #6b5e54;
+        --shadow: rgba(31, 27, 22, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Crimson Text", "Times New Roman", serif;
+        color: var(--ink);
+        background:
+          radial-gradient(900px 500px at -10% -10%, #fdd9c6 0%, transparent 55%),
+          radial-gradient(700px 400px at 110% 10%, #d0e8d3 0%, transparent 50%),
+          linear-gradient(160deg, #f7efe7 0%, #f5f0e9 50%, #f3e8df 100%);
+        min-height: 100vh;
+      }
+
+      .wrap {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 48px 20px 72px;
+      }
+
+      .hero {
+        display: grid;
+        gap: 24px;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        align-items: center;
+        padding: 28px;
+        background: var(--card);
+        border-radius: 24px;
+        box-shadow: 0 18px 40px var(--shadow);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        width: 220px;
+        height: 220px;
+        right: -40px;
+        top: -60px;
+        background: conic-gradient(from 140deg, #ffbfa6, #ffd8c7, #ffbfa6);
+        border-radius: 50%;
+        opacity: 0.65;
+      }
+
+      h1 {
+        font-family: "Space Grotesk", "Arial Black", sans-serif;
+        font-size: clamp(2.3rem, 3vw, 3.4rem);
+        margin: 0 0 12px;
+        letter-spacing: -0.02em;
+      }
+
+      .hero p {
+        margin: 0;
+        font-size: 1.1rem;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 18px;
+        background: var(--accent);
+        color: #fff;
+        font-family: "Space Grotesk", "Arial Black", sans-serif;
+        font-weight: 600;
+        text-decoration: none;
+        border-radius: 999px;
+        box-shadow: 0 12px 24px rgba(255, 122, 89, 0.3);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .cta:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 16px 30px rgba(255, 122, 89, 0.35);
+      }
+
+      .grid {
+        margin-top: 36px;
+        display: grid;
+        gap: 18px;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      }
+
+      .card {
+        background: var(--card);
+        border-radius: 18px;
+        padding: 18px 18px 20px;
+        box-shadow: 0 12px 24px var(--shadow);
+        animation: lift 0.7s ease both;
+      }
+
+      .card:nth-child(2) { animation-delay: 0.05s; }
+      .card:nth-child(3) { animation-delay: 0.1s; }
+      .card:nth-child(4) { animation-delay: 0.15s; }
+      .card:nth-child(5) { animation-delay: 0.2s; }
+      .card:nth-child(6) { animation-delay: 0.25s; }
+      .card:nth-child(7) { animation-delay: 0.3s; }
+      .card:nth-child(8) { animation-delay: 0.35s; }
+      .card:nth-child(9) { animation-delay: 0.4s; }
+      .card:nth-child(10) { animation-delay: 0.45s; }
+
+      .card h3 {
+        margin: 0 0 8px;
+        font-family: "Space Grotesk", "Arial Black", sans-serif;
+        font-size: 1.1rem;
+      }
+
+      .card p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.5;
+      }
+
+      .footer {
+        margin-top: 42px;
+        padding: 24px;
+        background: #1f1b16;
+        color: #f8f4ee;
+        border-radius: 18px;
+        display: grid;
+        gap: 12px;
+      }
+
+      .footer strong {
+        font-family: "Space Grotesk", "Arial Black", sans-serif;
+        font-size: 1.1rem;
+      }
+
+      @keyframes lift {
+        from {
+          opacity: 0;
+          transform: translateY(16px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <section class="hero">
+        <div>
+          <h1>TP Python - Bases solides</h1>
+          <p>
+            Un mini parcours pour des jeunes eleves: operations arithmetiques,
+            chaines de caracteres, boucles et affichage. Chaque exercice cible
+            une competence claire et se termine par une fonction a completer.
+          </p>
+        </div>
+        <div>
+          <p>Telecharge le fichier de depart:</p>
+          <a class="cta" href="exercices.py" download>exercices.py</a>
+        </div>
+      </section>
+
+      <section class="grid">
+        <article class="card">
+          <h3>1. Addition et soustraction</h3>
+          <p>Retourner la somme et la difference de deux nombres a et b.</p>
+        </article>
+        <article class="card">
+          <h3>2. Multiplication et division</h3>
+          <p>Retourner le produit et le quotient (en float) de a et b.</p>
+        </article>
+        <article class="card">
+          <h3>3. Aire d un rectangle</h3>
+          <p>Calculer l aire a partir de la longueur et de la largeur.</p>
+        </article>
+        <article class="card">
+          <h3>4. Moyenne de trois nombres</h3>
+          <p>Calculer la moyenne de a, b et c.</p>
+        </article>
+        <article class="card">
+          <h3>5. Prenom + nom propre</h3>
+          <p>Assembler et afficher un nom complet avec une espace.</p>
+        </article>
+        <article class="card">
+          <h3>6. Compter les voyelles</h3>
+          <p>Compter le nombre de voyelles dans une chaine.</p>
+        </article>
+        <article class="card">
+          <h3>7. Inverser une chaine</h3>
+          <p>Construire une nouvelle chaine en inversant les caracteres.</p>
+        </article>
+        <article class="card">
+          <h3>8. Table de multiplication</h3>
+          <p>Afficher la table de n de 1 a 10, une ligne par resultat.</p>
+        </article>
+        <article class="card">
+          <h3>9. Somme de 1 a n</h3>
+          <p>Calculer et afficher la somme des entiers de 1 a n.</p>
+        </article>
+        <article class="card">
+          <h3>10. Mot magique des multiples</h3>
+          <p>
+            Pour i de 1 a n, afficher i ou un mot selon les multiples de 3 et 5.
+          </p>
+        </article>
+      </section>
+
+      <section class="footer">
+        <strong>Consigne generale</strong>
+        <div>
+          Completer chaque fonction dans `exercices.py`. Tester dans un terminal
+          Python en appelant les fonctions avec des exemples simples.
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
