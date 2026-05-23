@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: Nunito, "Trebuchet MS", Verdana, sans-serif;
+  color: #0f172a;
+  background:
+    radial-gradient(circle at top left, rgba(217, 243, 255, 0.95), transparent 30%),
+    radial-gradient(circle at top right, rgba(255, 209, 102, 0.35), transparent 25%),
+    linear-gradient(180deg, #dff6ff 0%, #c9eff9 35%, #eefcff 100%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+code {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+}

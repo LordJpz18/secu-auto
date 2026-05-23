@@ -1,146 +1,56 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TP Python CM1-6e</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Python Quest - Téléchargements</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="hero">
+        <p class="eyebrow">Python Quest</p>
+        <h1>Télécharger les dossiers du projet</h1>
+        <p class="intro">
+          Cette page permet de récupérer rapidement les archives ZIP du backend, du frontend, ou du projet complet.
+        </p>
+      </section>
 
-<style>
-body{font-family:Arial,Helvetica,sans-serif;margin:0;background:#f7f7f5;color:#222}
-.container{max-width:1000px;margin:auto;padding:40px 20px}
-h1{font-size:42px;margin-bottom:10px}
-.exercise{background:white;border:1px solid #e5e5e5;border-radius:20px;padding:25px;margin-bottom:25px}
-h2{margin-top:0}
-.panel{background:#f4f4f4;padding:15px;border-radius:12px;margin:10px 0}
-pre{background:#111827;color:#f9fafb;padding:15px;border-radius:12px;overflow:auto}
-.badge{font-size:13px;background:#f1f1f1;padding:6px 10px;border-radius:999px;margin-right:6px}
-</style>
-</head>
+      <section class="grid">
+        <article class="card">
+          <span class="badge">Backend</span>
+          <h2>Archive backend</h2>
+          <p>
+            Contient l'API FastAPI, les exercices Python, le runner sécurisé et les dépendances backend.
+          </p>
+          <a class="button" href="./archives/python-quest-backend.zip" download>Télécharger le backend</a>
+        </article>
 
-<body>
-<div class="container">
+        <article class="card">
+          <span class="badge">Frontend</span>
+          <h2>Archive frontend</h2>
+          <p>
+            Contient l'interface React, le plateau de jeu, Monaco Editor et la configuration Vite/Tailwind.
+          </p>
+          <a class="button" href="./archives/python-quest-frontend.zip" download>Télécharger le frontend</a>
+        </article>
 
-<h1>TP Python débutant</h1>
-<p>10 exercices progressifs pour apprendre Python avec des petits problèmes amusants.</p>
+        <article class="card featured">
+          <span class="badge">Complet</span>
+          <h2>Archive complète</h2>
+          <p>
+            Contient le backend, le frontend, le README et les scripts de lancement pour distribuer tout le projet.
+          </p>
+          <a class="button" href="./archives/python-quest-complet.zip" download>Télécharger le projet complet</a>
+        </article>
+      </section>
 
-<div class="exercise">
-<h2>Exercice 1 — Les billes de Lina</h2>
-<span class="badge">Très facile</span>
-<div class="panel">Lina possède 7 billes. Son ami lui en offre 5 de plus pour son anniversaire.
-Écris une fonction qui calcule combien de billes Lina possède maintenant.</div>
-<pre>def total_billes(billes_depart, billes_gagnees):
-    pass</pre>
-<pre>print(total_billes(7,5))
-# 12</pre>
-</div>
-
-<div class="exercise">
-<h2>Exercice 2 — Le goûter de Tom</h2>
-<span class="badge">Très facile</span>
-<div class="panel">Tom a 14 bonbons dans son sac. Pendant la récréation, il en mange 4.
-Écris une fonction qui calcule combien de bonbons il lui reste.</div>
-<pre>def reste_bonbons(bonbons_depart, bonbons_manges):
-    pass</pre>
-<pre>print(reste_bonbons(14,4))
-# 10</pre>
-</div>
-
-<div class="exercise">
-<h2>Exercice 3 — La salle de classe</h2>
-<span class="badge">Facile</span>
-<div class="panel">Dans une salle, il y a 6 rangées de 4 chaises.
-Écris une fonction qui calcule le nombre total de chaises dans la salle.</div>
-<pre>def nombre_chaises(rangees, chaises_par_rangee):
-    pass</pre>
-<pre>print(nombre_chaises(6,4))
-# 24</pre>
-</div>
-
-<div class="exercise">
-<h2>Exercice 4 — Partage équitable</h2>
-<span class="badge">Facile</span>
-<div class="panel">20 biscuits doivent être partagés également entre 5 enfants.
-Écris une fonction qui calcule combien de biscuits reçoit chaque enfant.</div>
-<pre>def biscuits_par_enfant(biscuits, enfants):
-    pass</pre>
-<pre>print(biscuits_par_enfant(20,5))
-# 4</pre>
-</div>
-
-<div class="exercise">
-<h2>Exercice 5 — Les paniers de pommes</h2>
-<span class="badge">Facile</span>
-<div class="panel">On range 17 pommes dans des paniers pouvant contenir 5 pommes chacun.
-Écris une fonction qui calcule combien de pommes restent en dehors des paniers pleins.</div>
-<pre>def pommes_restantes(pommes, taille_panier):
-    pass</pre>
-<pre>print(pommes_restantes(17,5))
-# 2</pre>
-</div>
-
-<div class="exercise">
-<h2>Exercice 6 — Le robot additionneur</h2>
-<span class="badge">Moyen</span>
-<div class="panel">Un robot doit additionner tous les nombres de 1 jusqu'à un nombre n.
-Par exemple pour n = 4, il doit calculer 1 + 2 + 3 + 4 = 10.
-Écris une fonction qui réalise ce calcul.</div>
-<div class="panel">Indice : utiliser une boucle for et une variable pour stocker la somme.</div>
-<pre>def somme_jusqua(n):
-    pass</pre>
-<pre>print(somme_jusqua(4))
-# 10</pre>
-</div>
-
-<div class="exercise">
-<h2>Exercice 7 — Le mot magique</h2>
-<span class="badge">Moyen</span>
-<div class="panel">Un magicien peut répéter un mot autant de fois qu'il veut.
-Écris une fonction qui répète un mot plusieurs fois.
-Par exemple "salut" répété 3 fois donne "salutsalutsalut".</div>
-<div class="panel">Indice : construire une chaîne de caractères avec une boucle.</div>
-<pre>def repeter_mot(mot, repetitions):
-    pass</pre>
-<pre>print(repeter_mot("salut",3))
-# salutsalutsalut</pre>
-</div>
-
-<div class="exercise">
-<h2>Exercice 8 — Compteur de lettres</h2>
-<span class="badge">Moyen</span>
-<div class="panel">Écris une fonction qui calcule combien de lettres contient un mot.</div>
-<div class="panel">Indice : utiliser la fonction len().</div>
-<pre>def nombre_lettres(mot):
-    pass</pre>
-<pre>print(nombre_lettres("chat"))
-# 4</pre>
-</div>
-
-<div class="exercise">
-<h2>Exercice 9 — Détective des voyelles</h2>
-<span class="badge">Assez difficile</span>
-<div class="panel">Écris une fonction qui compte combien de voyelles se trouvent dans un mot.
-On considère les voyelles suivantes : a, e, i, o, u, y.</div>
-<div class="panel">Indice : parcourir chaque lettre du mot avec une boucle et vérifier si elle appartient à "aeiouy".</div>
-<pre>def compter_voyelles(mot):
-    pass</pre>
-<pre>print(compter_voyelles("robot"))
-# 2</pre>
-</div>
-
-<div class="exercise">
-<h2>Exercice 10 — L'escalier d'étoiles</h2>
-<span class="badge">Assez difficile</span>
-<div class="panel">Écris une fonction qui construit un escalier avec des étoiles.
-Si n = 3, la fonction doit retourner :
-*
-**
-***</div>
-<div class="panel">Indice : ajouter un saut de ligne avec "\\n" après chaque étage.</div>
-<pre>def escalier_etoiles(n):
-    pass</pre>
-<pre>print(escalier_etoiles(3))</pre>
-</div>
-
-</div>
-</body>
-</html>
+      <section class="note">
+        <h3>Mise à jour des archives</h3>
+        <p>
+          Si les fichiers du projet changent, relance le script <code>python tools/build_download_archives.py</code> pour régénérer les ZIP.
+        </p>
+      </section>
+    </main>
+  </body>
+  </html>
