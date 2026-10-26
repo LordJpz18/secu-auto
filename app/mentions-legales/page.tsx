@@ -1,0 +1,3 @@
+import type { Metadata } from "next";
+export const metadata:Metadata={title:"Mentions légales"};
+export default function Legal(){return <main id="main" className="section shell legal"><p className="kicker">DOCUMENT PROVISOIRE</p><h1>MENTIONS<br/><span>LÉGALES.</span></h1><div className="notice">Contenu à compléter et à faire valider avant la mise en production.</div><h2>Éditeur</h2><p>Abrauto Automotive, Savigny-le-Temple. Adresse complète, forme juridique, capital, immatriculation et responsable de publication : à renseigner.</p><h2>Hébergement</h2><p>Hébergement prévu sur Vercel. Informations contractuelles à compléter.</p><h2>Contact</h2><p>Téléphone : +33 7 83 64 90 46. Adresse e-mail : abrauto@gmail.com</p></main>}

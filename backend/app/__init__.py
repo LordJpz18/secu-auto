@@ -1,1 +1,0 @@
-# Python Quest backend package

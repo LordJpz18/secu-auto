@@ -1,0 +1,1 @@
+import Link from "next/link"; export default function NotFound(){return <main id="main" className="section shell center"><p className="eyebrow">Erreur 404</p><h1>Cette route n’existe pas.</h1><Link className="button" href="/">Retour à l’accueil</Link></main>}

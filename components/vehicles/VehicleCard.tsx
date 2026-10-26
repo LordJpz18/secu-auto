@@ -1,0 +1,7 @@
+import Image from "next/image";
+import { Fuel, Gauge, Phone, Users } from "lucide-react";
+import { business } from "@/config/business";
+import type { Vehicle } from "@/lib/types";
+const status={available:"Disponible",soon:"Bientôt disponible",on_request:"Sur demande"};
+const fuel:Record<string,string>={petrol:"Essence",diesel:"Diesel",hybrid:"Hybride",plugin_hybrid:"Hybride rechargeable",electric:"Électrique"};
+export function VehicleCard({vehicle}:{vehicle:Vehicle}) { return <article className="vehicle-card"><div className="vehicle-image"><Image src={vehicle.coverImageUrl} alt={`${vehicle.name} — photographie provisoire à remplacer`} fill sizes="(max-width: 760px) 92vw, 420px"/></div><div className="vehicle-body"><div className="card-top"><span className={`status ${vehicle.status}`}>{status[vehicle.status]}</span><span className="category-label">{vehicle.category}</span></div><h3>{vehicle.name}</h3><p className="muted">{vehicle.make} · {vehicle.model}</p><p className="price">À partir de <strong>{(vehicle.dailyPriceCents/100).toLocaleString("fr-FR",{style:"currency",currency:"EUR"})}</strong> / jour</p><ul className="features">{vehicle.transmission&&<li><Gauge/>{vehicle.transmission==="automatic"?"Automatique":"Manuelle"}</li>}{vehicle.fuel&&<li><Fuel/>{fuel[vehicle.fuel]??vehicle.fuel}</li>}{vehicle.seats&&<li><Users/>{vehicle.seats} places</li>}{vehicle.volumeM3&&<li><Gauge/>{vehicle.volumeM3} m³</li>}</ul><a className="button button-card" href={business.phoneHref}><Phone/>Nous contacter</a></div></article>; }

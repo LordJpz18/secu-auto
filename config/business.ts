@@ -1,0 +1,18 @@
+export const business = {
+  businessName: "ABRAUTO AUTOMOTIVE",
+  description: "Location de véhicules particuliers et utilitaires, et accompagnement à l’achat.",
+  phone: "+33 7 49 23 66 12",
+  phoneHref: "tel:+33749236612",
+  email: "À renseigner",
+  emailHref: "mailto:contact-a-renseigner@abrauto.fr",
+  address: "Adresse complète à renseigner",
+  postalCode: "À renseigner",
+  city: "Savigny-le-Temple",
+  country: "France",
+  serviceArea: "Toute l’Île-de-France",
+  mapUrl: "https://www.google.com/maps/search/?api=1&query=Savigny-le-Temple",
+  openingHours: "Ouvert 24 h/24, 7 j/7",
+  instagramUrl: "À renseigner",
+  facebookUrl: "À renseigner",
+  whatsappUrl: "https://wa.me/33749236612",
+} as const;
